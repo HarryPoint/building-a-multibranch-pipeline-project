@@ -22,7 +22,6 @@ pipeline {
         stage('Deploy for production') {
             steps {
                 sh './jenkins/scripts/deploy-for-production.sh'
-                sh './jenkins/scripts/kill.sh'
             }
         }
     }
