@@ -28,7 +28,9 @@ echo 'is followed by another command that retrieves the process ID (PID) value'
 echo 'of the previously run process (i.e. "serve") and writes this value to'
 echo 'the file ".pidfile".'
 set -x
-npx serve build
+./node_modules/serve/bin/serve.js build &
+sleep 1
+echo $! > .pidfile
 set +x
 
 echo 'Now...'

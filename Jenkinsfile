@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:8-alpine'
-            args '-d -p 3000:3000 -p 5000:5000'
+            args '-p 3000:3000 -p 5000:5000'
         }
     }
     environment {
@@ -22,6 +22,7 @@ pipeline {
         stage('Deploy for production') {
             steps {
                 sh './jenkins/scripts/deploy-for-production.sh'
+                sh './jenkins/scripts/kill.sh'
             }
         }
     }
