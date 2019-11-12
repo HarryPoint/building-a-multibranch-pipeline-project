@@ -19,12 +19,6 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
             }
         }
-        stage('Deliver for development') {
-            steps {
-                sh './jenkins/scripts/deliver-for-development.sh'
-                sh './jenkins/scripts/kill.sh'
-            }
-        }
         stage('Deploy for production') {
             steps {
                 sh './jenkins/scripts/deploy-for-production.sh'
